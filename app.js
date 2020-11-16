@@ -2,11 +2,13 @@
 const form = document.querySelector('#task-form');
 const taskInput = document.querySelector('#task');
 const taskList = document.querySelector('.collection');
+const clearBtn = document.querySelector('#clear-tasks');
 // define event listeners
 // add task to list - submit button
 form.addEventListener('submit', addTask);
 //remove task from list - fas fa-backspace icon
 taskList.addEventListener('click', removeTask);
+clearBtn.addEventListener('click', clearTasks);
 
 // addTask function
 function addTask(e) {
@@ -43,4 +45,8 @@ function removeTask(e) {
             e.target.parentElement.parentElement.remove();
         }
     }
+}
+
+function clearTasks(e) {
+    taskList.innerHTML = '';
 }
