@@ -5,6 +5,8 @@ const taskList = document.querySelector('.collection');
 // define event listeners
 // add task to list - submit button
 form.addEventListener('submit', addTask);
+//remove task from list - fas fa-backspace icon
+taskList.addEventListener('click', removeTask);
 
 // addTask function
 function addTask(e) {
@@ -30,5 +32,15 @@ function addTask(e) {
         // clear task input
         taskInput.value = '';
         e.preventDefault();
+    }
+}
+
+//removeTask fn
+function removeTask(e) {
+    //is click over icon
+    if (e.target.parentElement.classList.contains('secondary-content')) {
+        if (confirm("Do you want to remove this task?")) {
+            e.target.parentElement.parentElement.remove();
+        }
     }
 }
